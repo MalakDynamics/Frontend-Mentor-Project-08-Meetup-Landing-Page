@@ -50,11 +50,96 @@
     --spacing-4: 1.5rem;    /* 24px */
     --spacing-5: 2.0rem;    /* 32px */
     --spacing-6: 2.5rem;    /* 40px */
-    --spacing-7: 3.5rem;    /* 56px */
+    --spacing-7: 3.0rem;    /* 48px */
+    --spacing-8: 3.5rem;    /* 56px */
     --spacing-8: 4.0rem;    /* 64px */
-    --spacing-9: 4.5rem;    /* 72px */
-    --spacing-10: 5.0rem;    /* 80px */
-    --spacing-11: 7.0rem;    /* 112px */
+    --spacing-10: 4.5rem;    /* 72px */
+    --spacing-11: 5.0rem;    /* 80px */
+    --spacing-12: 7.0rem;    /* 112px */
 }
 
 *, *::after, *::before { padding: 0; margin: 0; box-sizing: border-box;}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+body {
+    height: 100vh;
+
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--white);
+}
+
+.logo {
+    padding-top: var(--spacing-7);
+}
+
+.hero {
+    padding: var(--spacing-8) 0 var(--spacing-5) 0;
+    gap: var(--spacing-7);
+}
+.hero-call {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 0 var(--spacing-5);
+    gap: var(--spacing-4);
+    text-align: center;
+}
+.hero__title--top {
+    font-family: var(--font-family);
+    font-size: var(--font-size-4);
+    font-weight: var(--font-weight-black);
+    line-height: var(--line-height-min);
+    letter-spacing: var(--letter-spacing-min);
+    color: var(--slate-900);
+}
+
+.hero__title--bottom {
+    font-family: var(--font-family);
+    font-size: var(--font-size-2);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-min);
+    letter-spacing: var(--letter-spacing-min);
+    color: var(--slate-600);
+}
+
+.button-container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-3);
+}
+
+.button--cyan,
+.button--purple {
+    padding: var(--spacing-3) var(--spacing-6);
+    text-decoration: inherit;
+    color: var(--white);
+    border-radius: 29px;
+
+    font-family: var(--font-family);
+    font-size: var(--font-size-1);
+    font-weight: var(--font-weight-black);
+    line-height: var(--line-height-max);
+    letter-spacing: var(--letter-spacing-min);
+}
+
+.button--cyan { background-color: var(--cyan-600); }
+.button--purple { background-color: var(--purple-600); }
+
+.button--cyan > span { color: var(--cyan-300); }
+.button--purple > span { color: var(--purple-300); }
