@@ -1,16 +1,60 @@
 /* red-hat-display-500 - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap; 
   font-family: 'Red Hat Display';
   font-style: normal;
   font-weight: 500;
-  src: url('../assets/fonts/red-hat-display-v21-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../assets/fonts/red-hat-display-v21-latin-500.woff2') format('woff2'); 
 }
 /* red-hat-display-900 - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap; 
   font-family: 'Red Hat Display';
   font-style: normal;
   font-weight: 900;
-  src: url('../assets/fonts/red-hat-display-v21-latin-900.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../assets/fonts/red-hat-display-v21-latin-900.woff2') format('woff2'); 
 }
+
+:root {
+    /* Color Palette */
+    --cyan-600: #4D96A9;
+    --cyan-300: #8FE3F9;
+    --purple-600: #855FB1;
+    --purple-300: #D9B8FF;
+    --slate-900: #28283D;
+    --slate-600: #87879D;
+    --slate-300: #D1D1DF;
+    --white: #FAFAFA;
+
+    /* Font presets */
+    --font-family: 'Red Hat Display', sans-serif;
+
+    --font-size-4: 4.0rem;    /* 64px */
+    --font-size-3: 2.5rem;    /* 40px */
+    --font-size-2: 1.125rem;  /* 18px */
+    --font-size-1: 1.0rem;    /* 16px */
+
+    --letter-spacing-min: 0rem;
+    --letter-spacing-max: 0.25rem;
+
+    --font-weight-black: 900;
+    --font-weight-medium: 500;
+
+    --line-height-min: 110%;
+    --line-height-max: 140%;
+
+    /* Spacing Presets */
+    --spacing-1: 0.25rem;    /* 4px */
+    --spacing-2: 0.5rem;    /* 8px */
+    --spacing-3: 1.0rem;    /* 16px */
+    --spacing-4: 1.5rem;    /* 24px */
+    --spacing-5: 2.0rem;    /* 32px */
+    --spacing-6: 2.5rem;    /* 40px */
+    --spacing-7: 3.5rem;    /* 56px */
+    --spacing-8: 4.0rem;    /* 64px */
+    --spacing-9: 4.5rem;    /* 72px */
+    --spacing-10: 5.0rem;    /* 80px */
+    --spacing-11: 7.0rem;    /* 112px */
+}
+
+*, *::after, *::before { padding: 0; margin: 0; box-sizing: border-box;}
