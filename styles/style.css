@@ -41,7 +41,8 @@
     --font-weight-medium: 500;
 
     --line-height-min: 110%;
-    --line-height-max: 140%;
+    --line-height-mid: 140%;
+    --line-height-max: 150%;
 
     /* Spacing Presets */
     --spacing-1: 0.25rem;    /* 4px */
@@ -52,7 +53,7 @@
     --spacing-6: 2.5rem;    /* 40px */
     --spacing-7: 3.0rem;    /* 48px */
     --spacing-8: 3.5rem;    /* 56px */
-    --spacing-8: 4.0rem;    /* 64px */
+    --spacing-9: 4.0rem;    /* 64px */
     --spacing-10: 4.5rem;    /* 72px */
     --spacing-11: 5.0rem;    /* 80px */
     --spacing-12: 7.0rem;    /* 112px */
@@ -62,7 +63,6 @@
 
 img, picture, video, canvas, svg {
   display: block;
-  max-width: 100%;
 }
 
 input, button, textarea, select {
@@ -83,12 +83,27 @@ main {
 }
 
 .logo {
-    padding-top: var(--spacing-7);
+    margin-top: var(--spacing-7);
 }
 
 .hero {
     padding: var(--spacing-8) 0 var(--spacing-5) 0;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: var(--spacing-7);
+}
+.media-wrapper {
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mobile-media {
+    width: calc(115vw + (106.7 - 115) * ((100vw - 375px) / (768 - 375)));
+    overflow: hidden;
 }
 .hero-call {
     display: flex;
@@ -97,24 +112,26 @@ main {
 
     padding: 0 var(--spacing-5);
     gap: var(--spacing-4);
+
     text-align: center;
+    font-family: var(--font-family);
+    letter-spacing: var(--letter-spacing-min);
+
 }
 .hero__title--top {
-    font-family: var(--font-family);
-    font-size: var(--font-size-4);
+    font-size: var(--font-size-3);
     font-weight: var(--font-weight-black);
     line-height: var(--line-height-min);
-    letter-spacing: var(--letter-spacing-min);
     color: var(--slate-900);
+    text-wrap: balance;
 }
 
 .hero__title--bottom {
-    font-family: var(--font-family);
-    font-size: var(--font-size-2);
+    font-size: var(--font-size-1);
     font-weight: var(--font-weight-medium);
-    line-height: var(--line-height-min);
-    letter-spacing: var(--letter-spacing-min);
+    line-height: var(--line-height-max);
     color: var(--slate-600);
+    text-wrap: pretty;
 }
 
 .button-container {
@@ -134,23 +151,28 @@ main {
     font-family: var(--font-family);
     font-size: var(--font-size-1);
     font-weight: var(--font-weight-black);
-    line-height: var(--line-height-max);
+    line-height: var(--line-height-mid);
     letter-spacing: var(--letter-spacing-min);
+    transition: background-color 0.3s ease;
 }
 
 .button--cyan { background-color: var(--cyan-600); }
 .button--purple { background-color: var(--purple-600); }
+
+.button--cyan:hover { background-color: #71C0D4; }
+.button--purple:hover { background-color: #B18BDD; }
 
 .button--cyan > span { color: var(--cyan-300); }
 .button--purple > span { color: var(--purple-300); }
 
 
 .features {
-    padding: var(--spacing-5) var(--spacing-5) var(--spacing-8) var(--spacing-5);
+    padding: var(--spacing-5) var(--spacing-5) var(--spacing-9) var(--spacing-5);
 
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: var(--spacing-9);
 
 }
 
@@ -159,18 +181,16 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    ;
 }
-
-.step-count__number::before { /* swap for a line I think, this isn't worth it */
-    content: '';
+.step-count__line {
     height: var(--spacing-11);
     width: 1px;
     background-color: var(--slate-300); 
-    position: absolute;
-    bottom: 100%;
 }
 
 .step-count__number {
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -178,13 +198,116 @@ main {
     height: 56px;
     width: 56px;
     position: relative;
+    background-color: var(--white);
 
     font-family: var(--font-family);
     font-size: var(--font-size-1);
     font-weight: var(--font-weight-black);
-    line-height: var(--line-height-max);
+    line-height: var(--line-height-mid);
     letter-spacing: var(--letter-spacing-min);
     color: var(--slate-600);
     border: solid var(--slate-300) 1px;
     border-radius: 50%;
+}
+
+.grid-container {
+    display: inline-grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: var(--spacing-3);
+}
+.grid-container > img {
+    border-radius: 1rem;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.features-call {
+    font-family: var(--font-family);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+}
+
+.features__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.features__title--sub {
+    line-height: var(--line-height-min);
+    letter-spacing: var(--letter-spacing-max);
+    color: var(--cyan-600);
+    font-weight: var(--font-weight-black);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.features__title--header {
+    font-size: 2rem;
+    font-weight: var(--font-weight-black);
+    line-height: var(--line-height-min);
+    letter-spacing: var(--letter-spacing-min);
+    color: var(--slate-900);
+    text-wrap: balance;
+}
+
+.features__text {
+    font-family: var(--font-family);
+    font-size: 1rem;
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-max);
+    color: var(--slate-600);
+    letter-spacing: var(--letter-spacing-min);
+}
+
+.closing-call {
+    position: relative;
+    z-index: 0;
+    margin-top: -28px;
+    background-image: url("../assets/mobile/image-footer.jpg");
+    background-size: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-8) var(--spacing-5);
+    text-align: center;
+    gap: 1.5rem;
+
+    
+    font-family: var(--font-family);
+    color: white;
+}
+.closing-call > *:not(.image-filter) {
+    z-index: 2;
+}
+
+.closing__title {
+    font-weight: var(--font-weight-black);
+    font-size: 2rem;
+    line-height: var(--line-height-min);
+}
+
+.closing__text {
+    font-weight: var(--font-weight-medium);
+    font-size: 1rem;
+    line-height: var(--line-height-max);
+}
+
+.image-filter {
+    position: absolute;
+    opacity: 87%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: var(--cyan-600);
 }
