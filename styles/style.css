@@ -143,3 +143,48 @@ main {
 
 .button--cyan > span { color: var(--cyan-300); }
 .button--purple > span { color: var(--purple-300); }
+
+
+.features {
+    padding: var(--spacing-5) var(--spacing-5) var(--spacing-8) var(--spacing-5);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.step-count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-count__number::before { /* swap for a line I think, this isn't worth it */
+    content: '';
+    height: var(--spacing-11);
+    width: 1px;
+    background-color: var(--slate-300); 
+    position: absolute;
+    bottom: 100%;
+}
+
+.step-count__number {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
+    width: 56px;
+    position: relative;
+
+    font-family: var(--font-family);
+    font-size: var(--font-size-1);
+    font-weight: var(--font-weight-black);
+    line-height: var(--line-height-max);
+    letter-spacing: var(--letter-spacing-min);
+    color: var(--slate-600);
+    border: solid var(--slate-300) 1px;
+    border-radius: 50%;
+}
