@@ -228,6 +228,7 @@ main {
 .grid-container {
     display: inline-grid;
     width: 100%;
+    max-width: 70rem;  /* 1120px */
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: var(--spacing-3);
